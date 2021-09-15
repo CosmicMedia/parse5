@@ -1668,8 +1668,12 @@ function svgStartTagInBody(p, token) {
 }
 
 function genericStartTagInBody(p, token) {
-    p._reconstructActiveFormattingElements();
-    p._insertElement(token, NS.HTML);
+    if (p.options.voidElements && p.options.voidElements.includes(token.tagName)) {
+            areaStartTagInBody(p, token)
+    } else {
+        p._reconstructActiveFormattingElements();
+        p._insertElement(token, NS.HTML);
+    }
 }
 
 //OPTIMIZATION: Integer comparisons are low-cost, so we can use very fast tag name length filters here.
