@@ -170,7 +170,7 @@ function isAsciiHexDigit(cp) {
 }
 
 function toAsciiLowerCodePoint(cp) {
-    return cp + 0x0020;
+    return cp;
 }
 
 //NOTE: String.fromCharCode() function can handle only characters from BMP subset.
