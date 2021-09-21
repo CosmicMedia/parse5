@@ -1668,7 +1668,7 @@ function svgStartTagInBody(p, token) {
 }
 
 function genericStartTagInBody(p, token) {
-    if (p.options.voidElements && p.options.voidElements.includes(token.tagName)) {
+    if (token.tagName.charAt(0) === token.tagName.charAt(0).toUpperCase()) {
             areaStartTagInBody(p, token)
     } else {
         p._reconstructActiveFormattingElements();
